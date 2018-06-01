@@ -5,14 +5,19 @@ using UnityEditor.Android;
 
 public class ModifyUnityAndroidAppManifestSample : IPostGenerateGradleAndroidProject
 {
-    public readonly string ActivityName = "com.unity3d.nostatusbar.UnityPlayerActivityStatusBar";
+    public readonly string ActivityName = "com.yourcompany.yourgame.YourActivityName";
+    public readonly string ThemeName = "@style/YourCustomTheme";
 
     public void OnPostGenerateGradleAndroidProject(string basePath)
     {
+        // If needed, add condition checks on whether you need to run the modification routine.
+        // For example, specific configuration/app options enabled
+
         var androidManifest = new AndroidManifest(GetManifestPath(basePath));
 
-        androidManifest.SetApplicationTheme(GetThemeName());
+        androidManifest.SetApplicationTheme(ThemeName);
         androidManifest.SetStartingActivityName(ActivityName);
+        // Add your XML manipulation routines
 
         androidManifest.Save();
     }
@@ -20,11 +25,6 @@ public class ModifyUnityAndroidAppManifestSample : IPostGenerateGradleAndroidPro
     public int callbackOrder { get { return 1; } }
 
     private string _manifestFilePath;
-
-    private string GetThemeName()
-    {
-        return "@style/UnityTransparentStatusBarTheme";
-    }
 
     private string GetManifestPath(string basePath)
     {
