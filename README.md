@@ -28,3 +28,4 @@ The script provided in this repo, for example, updates the LAUNCH activity and t
 ## Useful Links
 -	https://docs.unity3d.com/Manual/android-manifest.html
 -	https://developer.android.com/studio/build/manifest-merge
+-	https://docs.unity3d.com/ScriptReference/Android.IPostGenerateGradleAndroidProject.OnPostGenerateGradleAndroidProject.html
